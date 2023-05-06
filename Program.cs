@@ -12,6 +12,7 @@ builder.Services.Configure<StudentStoreDBConfiguration>
 (
     builder.Configuration.GetSection(nameof(StudentStoreDBConfiguration))
 );
+
 builder.Services.AddSingleton<IStudentStoreDatabaseConfiguration>
 (
     sp => sp.GetRequiredService<IOptions<StudentStoreDBConfiguration>>().Value
@@ -20,7 +21,7 @@ builder.Services.AddSingleton<IStudentStoreDatabaseConfiguration>
 builder.Services.AddSingleton<IMongoClient>
 (
     s => new MongoClient(builder.Configuration.GetValue<string>
-    ("StudentMangDBSettings:ConnectionString"))
+    ("StudentStoreDBConfiguration:ConnectionString"))
 );
 
 builder.Services.AddScoped<IStudentService, StudentServices>();

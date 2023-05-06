@@ -8,12 +8,6 @@ namespace Student_MS.Service
     {
         private readonly IMongoCollection<Student> _students;
 
-        // public StudentServices(IStudentStoreDatabaseConfiguration config, IMongoClient mongoClient)
-        // {
-        //     var database = mongoClient.GetDatabase(config.DatabaseName);
-        //     _students = database.GetCollection<Student>(config.StudentCoursesCollection);
-        // }
-
         public StudentServices(IStudentStoreDatabaseConfiguration config, IMongoClient mongoClient)
         {
             if (config == null)
